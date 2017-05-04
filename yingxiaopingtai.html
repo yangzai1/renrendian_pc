@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tx-Homework</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/index.css">
+
+<script src="js/lanjiazai.js"></script>
+</head>
+<body>
+<div class="t_box">
+<div id="z_header" class="ww">
+        <h1 class="fl"><a href="index.html">人人店</a> </h1>
+        <div class="z_nav fr">
+            <ul>
+                <li class="fl"><a href="index.html">关于人人店</a> </li>
+                <li class="fl"><a href="jianzhan.html">商城系统</a> </li>
+                <li class="fl"><a href="yingxiaopingtai.html">营销平台</a> </li>
+                <li class="fl"><a href="fenxiao.html">人人分销</a> </li>
+                <li class="fl">
+                    <a href="#">用户中心</a>
+                    <ul class="z_subnav">
+                        <li><a href="#">官网商城管理</a></li>
+                        <li><a href="#">品牌综合商城</a></li>
+                        <li><a href="#">人人分销管理</a></li>
+                        <li><a href="#">第三方商城分销管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+<div class="t_tab t_tab2 clearfix">
+    <ul class="clearfix">
+        <li style="display: block" class="t_btnback"><a href="#" class="t_mssy">马上试用</a></li>
+    </ul>
+</div>
+<div class="t_ld">
+    <div class="t_null">
+        <h2>
+            <p>方案亮点</p>
+            <p class="t_p1">PROGRAM HIGHLIGHTS</p>
+        </h2>
+    </div>
+    <ul class="t_fa">
+        <li>
+            <div class="t_btn"></div>
+            <h4>简单快速</h4>
+            <strong>0门槛加入,快速上手无需学习,<br>效果立竿见影</strong>
+        </li>
+        <li>
+            <div class="t_btn t_ps"></div>
+            <h4>全渠道</h4>
+            <strong>站点,自媒体,朋友圈,全渠道,多终端的分销军团,帮助你快速实现商品直触买家</strong>
+        </li>
+        <li>
+            <div class="t_btn t_ps2"></div>
+            <h4>更高效</h4>
+            <strong>更好的效果,更高的性价比,数据全面,投放自由,效果实时监控</strong>
+        </li>
+    </ul>
+</div>
+<div class="t_lcbj">
+    <div class="t_lc">
+        <div class="t_null">
+            <h2>
+                <p>分销流程</p>
+                <p class="t_p1">Distribution process</p>
+            </h2>
+        </div>
+        <div class="t_lcback">
+            <img _src="images/t_flow.png" alt="">
+        </div>
+    </div>
+</div>
+<div class="t_back2">
+    <div class="t_al t_fff">
+        <div class="t_null">
+            <h2>
+                <p>经典案例</p>
+                <p class="t_p1">THE CLASSIC CASE</p>
+            </h2>
+        </div>
+        <div class="t_anli">
+            <ol>
+                
+            </ol>
+        </div>
+        <div class="t_btn2">
+            <a href="javascript:;" class="t_prev"></a>
+            <a href="javascript:;" class="t_next"></a>
+        </div>
+        <a href="#" class="t_mfty">免费体验</a>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="ww">
+        <div class="z_bnav">
+            <a href="#">shopcmd</a>|
+            <a href="#">首页</a>|
+            <a href="#">官网云商城</a>|
+            <a href="#">智慧门店</a>|
+            <a href="#">营销平台</a>|
+            <a href="#">媒体联盟</a>|
+            <a href="#">关于我们</a>
+            <span class="z_tel">4008-188-360</span>
+        </div>
+        <div class="z_copyright">
+            ©Copyright 2015 苏州海云网络科技有限公司版权所有 | 苏ICP备15038170号-3
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+$(function(){
+	//导航
+	$('.z_nav > ul > li:last').hover(function(){
+		$(this).find('.z_subnav').stop().animate().slideToggle();
+	});
+	//建站
+	(function () {
+		$('.btn').hover(function () {
+			$(this).css({
+				background:'#ff9412',
+				color:'#fff'
+			})
+		},function () {
+			$(this).css({
+				background:'#fff',
+				color:'#ff9412'
+			})
+		});
+	})();
+	
+	//jsonp获取图片
+	(function(){
+		$.ajax({
+		 type: "get",
+		 url: 'http://boss.shopcmd.com/boss/website/websiteCase.do',
+		 data:"site=1",
+		 dataType: "jsonp",
+		 jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+		 //jsonpCallback:"flightHandler",   //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+		 success: function(json){
+			$.each( json.data.content, function(i, n){
+			  var aLi = '<li><a href="json.data.content[i].webAddress"><img _src="http://hycloudshop.img-cn-hangzhou.aliyuncs.com/'+json.data.content[i].logo+'" alt=""><h4>'+json.data.content[i].webName+'</h4><span><i></i></span></a></li>'
+				
+				$(aLi).appendTo('.t_anli ol')
+			});			 
+		 },
+		 complete :function(){
+			zz_case()
+		} ,
+		 error: function(){
+			 console.log('fail');
+		 }
+	 });
+	//案例轮播图
+	function zz_case(){   
+		var left=$('.t_anli ol li').eq(0).width() + 40;
+		var index=0;
+		var lg=$('.t_anli ol li').length;
+		if(lg<=3){
+			$('.t_btn2 a:last').addClass('t_next2').removeClass('t_next')
+		}
+		function Next() {
+			if(lg%3==1){
+				index+=3;
+				z_move();
+				if(index==lg-1){
+					$('.t_anli ol').stop().animate({
+						left:-left*(index-2)
+					});
+					$('.t_btn2 a:last').addClass('t_next2').removeClass('t_next')
+				}
+				$('.t_btn2 a:first').addClass('t_prev2').removeClass('t_prev')
+			}
+			else if(lg%3==2){
+				index+=3;
+				z_move();
+				if(index==lg-2){
+					$('.t_anli ol').stop().animate({
+						left:-left*(index-1)
+					});
+					$('.t_btn2 a:last').addClass('t_next2').removeClass('t_next')
+				}
+				$('.t_btn2 a:first').addClass('t_prev2').removeClass('t_prev')
+			}
+			else{
+				index+=3;
+				z_move();
+				if(index==lg-3) {
+					$('.t_btn2 a:last').addClass('t_next2').removeClass('t_next')
+				}
+				$('.t_btn2 a:first').addClass('t_prev2').removeClass('t_prev')
+			}
+		}
+		function z_move(){
+			$('.t_anli ol').stop().animate({
+				left:-left*index
+			});
+		}
+		function prev() {
+			if(lg%3==0){
+				index-=3;
+				z_move();
+				if(index==3) {
+					$('.t_btn2 a:last').addClass('t_next').removeClass('t_next2')
+				}
+				if(index==0){
+					$('.t_btn2 a:first').addClass('t_prev').removeClass('t_prev2')
+					$('.t_btn2 a:last').addClass('t_next').removeClass('t_next2')
+				}
+			}
+			else{
+				index-=3;
+				z_move();
+				if(index==0){
+					z_move();
+					$('.t_btn2 a:first').addClass('t_prev').removeClass('t_prev2')
+				}
+				$('.t_btn2 a:last').addClass('t_next').removeClass('t_next2')
+			}
+		}
+		$('.t_next').on('click',function(){
+			if (index<=lg-4){
+				Next();
+			}
+		})
+		$('.t_prev').on('click',function(){
+			if (index>=3){
+				prev();
+			}
+		})
+	}
+	})()
+});
+</script>
+</body>
+</html>

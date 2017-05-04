@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tx-Homework</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/jsonp.js"></script>
+<script>
+	$(function(){
+		$('#log').click(function(){
+			$.ajax({
+				 url: 'http://passport.shopcmd.com/passport/login',
+				 data: "username="+$('#user').val()+"&password="+$('#pass').val()+"&code=yg68&_=1482478177825",
+				 dataType: "jsonp",
+				 jsonp: "callback",
+
+				 jsonpCallback:"flightHandler",
+				 success: function(json){
+					$('.t_msg').css('display','block').html(json.detail)
+				 },
+				 error: function(json){
+					alert('登录失败')
+				 }
+			 });
+		})
+	})
+</script>
+</head>
+<body>
+<div class="t_box">
+    <div class="t_nav">
+        <h1>
+            <a href="index.html">人人店</a>
+        </h1>
+    </div>
+    <div class="t_back">
+        <div class="ww">
+            <div class="t_dengl fr">
+                <h4>用户登录</h4>
+                <div class="t_msg">用户名或者密码错误</div>
+                <form action="" method="">
+                    <div class="t_d1">
+                        <span class="t_span1"></span>
+                        <input type="text" placeholder="账户名" class="t_inp1" id="user">
+                    </div>
+                    <div class="t_d2">
+                        <span class="t_span2"></span>
+                        <input type="text" placeholder="密码" class="t_inp2" id="pass">
+                    </div>
+                    
+                    <div class="t_msg2">
+                        <input type="checkbox" id="msg"><label for="msg">记住账号</label>
+                        <a href="javascript:;" class="fr">忘记密码?</a>
+                    </div>
+                    <input type="button" value="登录" class="log" id="log">
+                    <a href="javascript:;" class="t_zc">&lt;&lt; 新用户注册</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="t_copy">
+        Copyright©2015 海云网络科技有限公司版权所有 | 苏ICP备B1-201100001
+    </div>
+</div>
+</body>
+</html>

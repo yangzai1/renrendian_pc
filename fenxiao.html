@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人人分销管理</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <script src="js/lanjiazai.js"></script>
+</head>
+<body>
+<div id="wrap">
+    <!--头部-->
+    <div id="z_header" class="ww">
+        <h1 class="fl"><a href="index.html">人人店</a> </h1>
+        <div class="z_nav fr">
+            <ul>
+                <li class="fl"><a href="index.html">关于人人店</a> </li>
+                <li class="fl"><a href="jianzhan.html">商城系统</a> </li>
+                <li class="fl"><a href="yingxiaopingtai.html">营销平台</a> </li>
+                <li class="fl"><a href="fenxiao.html">人人分销</a> </li>
+                <li class="fl">
+                    <a href="#">用户中心</a>
+                    <ul class="z_subnav">
+                        <li><a href="#">官网商城管理</a></li>
+                        <li><a href="#">品牌综合商城</a></li>
+                        <li><a href="#">人人分销管理</a></li>
+                        <li><a href="#">第三方商城分销管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--banner-->
+    <div id="z_banner_fx">
+        <div class="ww">
+            <a href="#">创建我的商城</a>
+        </div>
+    </div>
+    <!--主体-->
+    <div id="z_main" class="ww">
+        <!--产品简介-->
+        <div class="z_intitle">
+            <h2>产品简介</h2>
+            <span>PRODUCT INTRODUCTION</span>
+        </div>
+        <div class="z_intro">
+            <div class="nr">
+                <p>海云微分销是一个分销商城管理平台，使用海云微分销系统，人人都可以搭建属于</p>
+                <p>自己的个性化商城，含PC版，移动版和微信版</p>
+                <p>加入后，可一键创建商城，无需学习，无需成本，无需维护，无需进货发货</p>
+                <p>你只需通过自己的网站，APP，自媒体，QQ空间，朋友圈传播，就可以获得佣金收益（按商品点击计费）</p>
+            </div>
+        </div>
+        <!--产品优势-->
+        <div class="z_intitle">
+            <h2>产品优势</h2>
+            <span>PRODUCT ADVANTAGE</span>
+        </div>
+        <div class="z_advantage">
+            <ul>
+                <li>
+                    <img _src="images/z_img_fx1_03.png" />
+                    <dl class="fr">
+                        <dt>一键创建属于自己的个性化商城</dt>
+                        <dd>这年头，开个淘宝店也不容易，你需要会装修店铺，需要进货发货，需要24小时客服，需要为流量发愁，需要处理退货投诉<br>加入海云微分销，只需三步，即可拥有一个自己个性化的商城，动动手转发转发，即可获取佣金收益
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <img class="fr" _src="images/z_img_fx2_03.png" />
+                    <dl class="fl">
+                        <dt>一键创建属于自己的个性化商城</dt>
+                        <dd>这年头，开个淘宝店也不容易，你需要会装修店铺，需要进货发货，需要24小时客服，需要为流量发愁，需要处理退货投诉<br>加入海云微分销，只需三步，即可拥有一个自己个性化的商城，动动手转发转发，即可获取佣金收益
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </li>
+            </ul>
+            <a href="#" class="z_btn_cj">
+                <img _src="images/z_dot_fx_03.png" />
+                <span>创建我的商城</span>
+            </a>
+        </div>  
+    </div>
+    <!--底部-->
+    <div id="footer">
+        <div class="ww">
+            <div class="z_bnav">
+                <a href="#">shopcmd</a>|
+                <a href="#">首页</a>|
+                <a href="#">官网云商城</a>|
+                <a href="#">智慧门店</a>|
+                <a href="#">营销平台</a>|
+                <a href="#">媒体联盟</a>|
+                <a href="#">关于我们</a>
+                <span class="z_tel">4008-188-360</span>
+            </div>
+            <div class="z_copyright">
+                ©Copyright 2015 苏州海云网络科技有限公司版权所有 | 苏ICP备15038170号-3 
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //导航
+        $('.z_nav > ul > li:last').hover(function(){
+            $(this).find('.z_subnav').stop().animate().slideToggle();
+        })
+        $('.z_product li .z_move').hover(
+            function(){
+                $(this).stop().animate({
+                    'margin-left':'-260px'
+                },300)
+            },
+            function(){
+                $(this).stop().animate({
+                    'margin-left':'0px'
+                },300)
+            }
+        );
+    })
+</script>
+</body>
+</html>
